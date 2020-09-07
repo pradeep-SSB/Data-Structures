@@ -1,2 +1,2 @@
 # legendary-pancake
-Data Structure Oriented Problems
+Data Structure Oriented
