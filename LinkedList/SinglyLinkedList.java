@@ -1,9 +1,10 @@
 package Collection;
 
-//import org.w3c.dom.Node;
+//javatpoint
 
 public class SinglyLinkedList {
-	
+
+ //Represent a node of the singly linked list  
 	class Node{
 		int data;
 		Node next;
@@ -13,13 +14,14 @@ public class SinglyLinkedList {
 			this.next =null;
 		}
 	}
-	
+//Represent the head and tail of the singly linked list    
 	Node head =null;
 	Node  tail= null;
-//Add
+//addNode() will add a new node to the list//Add
 	 void add(int data) {
+//Create a new node 
 		Node newNode = new Node(data);
-		
+//If list is empty, both head and tail will point to new node   		
 		if(head == null)
 		{		
 			head = newNode;
@@ -27,6 +29,7 @@ public class SinglyLinkedList {
 		}
 		
 		else {
+//newNode will be added after tail such that tail's next will point to newNode
 			tail.next = newNode;
 			tail= newNode;
 	}	
@@ -34,11 +37,12 @@ public class SinglyLinkedList {
 	 
 //Display
 	 public  void display() {
+//Node current will point to head  
 		 Node current = head;
 		 		 
-		 while(current.next != null) {
+		 while(current != null) {  // Key
 			 System.out.println( current.data +" ");
-//			 current= current.next;
+			 current= current.next;
 		 }
 	 } 
 
