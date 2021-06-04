@@ -97,17 +97,54 @@ public class LinkedList{
         void addFirst(int val){
             Node temp = new Node();
             temp.data = val;
-            temp.next = null;
+            temp.next = head;
+            head = temp;
 
             if(size == 0){
-                head =  temp;
-                size++;
-            }
-            else{
-                temp.next = head;
-                head = temp;
-            }
+                tail =  temp;
+          }
+            size++;   
         }
+       void addAt(int val, int idx){
+           Node node = new Node();
+           node.data = val;
+
+            if(idx < 0 || idx > size){                       // Invalid index
+               System.out.println("Invalid Arguments");
+           }
+             else if(idx == 0)                // starting
+                addFirst(val);
+            else if(idx == size )                // End
+                addlast(val);
+  
+            else{
+            Node temp = head;    // in between
+            for(int i = 0; i < idx - 1; i++){  // key -> i < idx - 1;
+                temp = temp.next;
+            }
+            node.next = temp.next;
+            temp.next = node;
+            size++;
+        }
+       }
+      void removeLast(){
+        if(size == 0){
+            System.out.println("Empty LL");
+        }
+        else if(size == 1){
+            head = tail = null;
+            size--;
+        }
+        else{
+            Node temp = head;
+            for(int i = 0; i< size - 2 ; i++){  // becozz bahr nikle par temp second last ko hi point karega
+                temp = temp.next;
+            }
+            tail = temp;
+            temp.next = null;
+            size--;
+        }
+       }
     }
     public static void main(String[] args){
         System.out.println("LnkedList Implementaion");
@@ -131,8 +168,13 @@ public class LinkedList{
 
         L_list.addFirst(5);
         L_list.display();
-        L_list.addFirst(8);
+
+        L_list.addAt(100, 2);
         L_list.display();
+
+        L_list.removeLast();
+        L_list.display();
+       
 
 
     }
